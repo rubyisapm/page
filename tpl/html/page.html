@@ -1,0 +1,37 @@
+{{if total>0}}
+<div class="page mt20 tc" data-pagecount="{{pageCount}}" data-total="{{total}}">
+    {{ if cur==1 }}
+    <span class="first disabled">首页</span>
+    {{ else }}
+    <span class="first">首页</span>
+    {{ /if }}
+    {{ if cur>1 }}
+    <span class="prev">上一页</span>
+    {{ else }}
+    <span class="prev disabled">上一页</span>
+    {{ /if }}
+    {{ each pages }}
+    {{ if $value==cur }}
+    <span class="current">{{$value}}</span>
+    {{ else }}
+    <span class="every">{{$value}}</span>
+    {{ /if }}
+    {{ /each }}
+    {{ if more }}
+    <span class="more">...</span>
+    {{ /if }}
+    {{ if cur==pageCount }}
+    <span class="next disabled">下一页</span>
+    <span class="last disabled">尾页</span>
+    {{ else }}
+    <span class="next">下一页</span>
+    <span class="last">尾页</span>
+    {{ /if }}
+    {{if pageCount>1}}
+    <div class="jump">
+        <input type="text" id="specialPage"/><span class="goPage">跳过去</span>
+    </div>
+    {{/if}}
+    <span class="total">{{pageCount}}页/{{total}}条</span>
+</div>
+{{/if}}
